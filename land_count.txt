@@ -33,3 +33,16 @@ Given 60 cards, 42 lands and the current mulligan strategy, on average I see 5.2
 
     ... continued on paper again
     x = 21 according to wolframalpha
+    nope! 24!
+
+    Results
+    42 lands, 5 by turn 3 and 6 by turn 4 (according to current mulligan strategy):
+    34 red sources
+    24 blue sources
+
+    4 temple 4 spirebluff 4 cascade bluffs 4 wandering fumarole = 16 dual
+    -> 18 red, 8 blue, 26 lands remaining
+    18 mountain
+    8 island
+    16 dual
+

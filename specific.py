@@ -8,10 +8,13 @@ MULLIGAN, KEEP, COMBO = range(3)
 def get_deck():
     deck = []
 
-    deck += [MOUNTAIN for i in range(21)]
+    # Mana base
+    deck += [MOUNTAIN for i in range(18)]
     deck += [ISLAND for i in range(8)]
-    deck += [DUAL for i in range(9)]
+    deck += [DUAL for i in range(12)]
     deck += [TEMPLE for i in range(4)]
+
+    # Spells
     deck += [VORTEX for i in range(2)]
     deck += [ASSAULT for i in range(4)]
     deck += [SWANS for i in range(4)]
@@ -38,7 +41,7 @@ def count_lands(hand):
     return lands
 
 
-def count_reds(hand):
+def count_red_sources(hand):
     reds = 0
     for card in hand:
         if card in (MOUNTAIN, DUAL, TEMPLE):
@@ -46,7 +49,7 @@ def count_reds(hand):
     return reds
 
 
-def count_blue(hand):
+def count_blue_sources(hand):
     blue = 0
     for card in hand:
         if card in (ISLAND, DUAL, TEMPLE):
