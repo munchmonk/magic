@@ -1,0 +1,48 @@
+drawing 10 cards from 52, prob of at least 3 hearts = ?
+13 hearts, 39 non hearts
+
+52 cards, draw 10 -> 52C10 ways to draw them
+52! / (10! * (52 - 10)!)
+because: there are 52! possible ways of ordering the deck; I only care about the first 10 cards, so 52*51*…*43 that is to say I divide by (52-10)!; now there are 10! ways to arrange these cards so I divide by 10 to obtain my final number (order doesn’t matter!! otherwise I wouldn’t divide by 10!)
+
+prob(3 hearts) = 1 - [prob(0 hearts) + prob(1 heart) + prob(2 hearts)]
+
+prob(0 hearts) = 39C10 / 52C10
+because:
+52C10 ways to organise the 10 draws out of 52
+39C10 ways to draw 10 cards out of 39 selected ones (the non hearts)
+so I divide the good outcomes with all the possible ones
+
+prob(1 heart) = (13C1 * 39C9) / 52C10
+because:
+52C10 ways to organise 10 draws
+13C1 ways to organise 1 draw from 13 good cards
+39C9 ways to organise 9 draws from 39 good cards
+
+prob(2 hearts) = (13C2 * 39C8) / 52C10
+:)
+
+
+
+
+——————
+
+
+SO, if I have 7 lands by turn 4, what are the odds of having at least 3 red ones? Total lands: 42, total reds: 30, total nonreds: 12
+
+ways to organise 7 lands out of 42: 42C7
+prob(0 reds) = 12C7 / 42C7
+prob(1 red) = (12C6 * 30C1) / 42C7
+prob(2 red) = (12C5 * 30C2) / 42C7
+
+p(0) -> 12C7 = 12! / (7! * (12 - 7)!) = 12! / (7! * 5!) = 12*11*10*9*8/5*4*3*2 = 11*9*8 = 792
+	42C7 = 42! / (7! * (42 - 7)!) = 42! / (7! * 35!) = 42*41*40*39*38*37*36/7*6*5*4*3*2 = 41*39*38*37*12 = 26978328
+	792 / 26978328 = 0.00002935689
+
+p(1) -> 924 * 30 / 26978328 = 0.00102749139
+
+p(2) -> 792 * 435 / 26978328 = 0.01277025025
+
+p(3+) = 1 - (p(0) + p(1) + p(2)) = 1 - (0.00002935689 + 0.00102749139 + 0.01277025025) = 1 - 0.01382709853 = 
+ = 0.98617290147 ~ 98.6%!!!!!!
+	

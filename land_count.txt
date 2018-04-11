@@ -1,0 +1,35 @@
+Given 60 cards, 42 lands and the current mulligan strategy, on average I see 5.27 ~ 5 lands out of 9 cards on turn 3 and
+5.98 ~ 6 lands out of 10 cards by turn 4 assuming I'm on the play.
+
+1) How many red sources do I need to have at least 3 red sources by turn 3 with p = 0.95?
+2) How many blue sources do I need to have at least 2 blue sources by turn 4 with p = 0.95?
+
+1)  R = red sources
+    42C5 combinations of 5 lands from 42 total
+    prob(3 red) = (RC3 * (42-R)C2) / 42C5
+    prob(4 red) = (RC4 * (42-R)C1) / 42C5
+    prob(5 red) = RC5 / 42C5
+
+    42C5 = 42! / (5! * (42 - 5)!) = 42! / (5! * 37!) = (42*41*40*39*38)/(5*4*3*2) = 42*41*13*38 = 850668
+    RC3 = R! / (3! * (R - 3)!)
+    RC4 = R! / (4! * (R - 4)!)
+    RC5 = R! / (5! * (R - 5)!)
+    (42-R)C2 = (42-R)! / (2! * (42-R-2)!) = (42-R)! / ((40-R)! * 2) = ((42-R) * (41-R) * (40-R)!) / ((40-R)! * 2) = (42-R)*(41-R)/2
+    (42-R)C1 = (42-R)! / (1! * (42-R-1)!) = (42-R)! / (41-R)! = (42-R) * (41-R)! / (41-R)! = 42-R
+
+    prob(3+ red) = prob(3 red) + prob(4 red) + prob(5 red) =
+    = (R! / (3! * (R - 3)!)) * ((42-R) * (41-R) / 2) / 850668 +
+    + ((R! / (4! * (R - 4)!)) * (42-R)) / 850668 +
+    + (R! / (5! * (R - 5)!)) / 850668 =
+    = (R*(R-1)*(R-2))/6 *  ((42-R) * (41-R) / 2) / 850668 +
+    + R*(R-3)*(R-2)*(R-3)/24
+
+    ... (continued on paper + wolframalpha, answer is 34)
+
+2) U = blue sources
+    42C6 combinations of 6 lands from 42 total
+    prob(0 blue) = (42-U)C6 / 42C6
+    prob(1 blue) = (42-U)C5 * UC1 / 42C6
+
+    ... continued on paper again
+    x = 21 according to wolframalpha
